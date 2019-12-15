@@ -3,9 +3,7 @@
 require_once 'classes/Categoria.php';
 require_once 'cabecalho.php';
 
-$categoria = new Categoria();
-$categoria->id = $_GET['id'];
-$resultado = $categoria->carregar();
+$categoria = new Categoria($_GET['id']);
 
 ?>
 <div class="row">
@@ -13,12 +11,13 @@ $resultado = $categoria->carregar();
         <h2>Editar Categoria</h2>
     </div>
 </div>
-<form action="#" method="post">
+<form action="categorias-editar-post.php" method="post">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="form-group">
                 <label for="nome">Nome da Categoria</label>
-                <input type="text" value="<?php echo $resultado['nome'] ?>" class="form-control" placeholder="Nome da Categoria">
+                <input type="hidden" name="id" value="<?php echo $categoria->id ?>">
+                <input type="text" name="nome" value="<?php echo $categoria->nome ?>" class="form-control" placeholder="Nome da Categoria">
             </div>
             <input type="submit" class="btn btn-success btn-block" value="Salvar">
         </div>
