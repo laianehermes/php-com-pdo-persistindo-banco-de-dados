@@ -1,9 +1,13 @@
-<?php require_once 'classes/Categoria.php'; ?>
-<?php
-    $categoria = new Categoria();
-    $lista = $categoria->listar();
+<?php 
+
+require_once 'autoload.php';
+$categoria = new Categoria();
+$lista = $categoria->listar();
+
+require_once 'cabecalho.php'
+
 ?>
-<?php require_once 'cabecalho.php' ?>
+
 <div class="row">
     <div class="col-md-12">
         <h2>Categorias</h2>

@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'classes/Categoria.php';
+require_once 'autoload.php';
 require_once 'cabecalho.php';
 
 $categoria = new Categoria($_GET['id']);
