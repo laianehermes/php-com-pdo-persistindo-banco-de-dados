@@ -2,8 +2,12 @@
 
 require_once 'autoload.php';
 
-$id = $_GET['id'];
-$categoria = new Categoria($id);
-$categoria->excluir($id);
+try {
+    $id = $_GET['id'];
+    $categoria = new Categoria($id);
+    $categoria->excluir($id);
 
-header('Location: categorias.php');
+    header('Location: categorias.php');
+} catch (Exception $error) {
+    Erro::trataErro($error);
+}

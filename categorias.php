@@ -1,8 +1,13 @@
 <?php 
 
 require_once 'autoload.php';
-$categoria = new Categoria();
-$lista = $categoria->listar();
+
+try {
+    $categoria = new Categoria();
+    $lista = $categoria->listar();
+} catch (Exception $error) {
+    Erro::trataErro($error);
+}
 
 require_once 'cabecalho.php'
 

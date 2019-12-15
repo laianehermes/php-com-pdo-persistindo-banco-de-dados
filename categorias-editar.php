@@ -3,7 +3,11 @@
 require_once 'autoload.php';
 require_once 'cabecalho.php';
 
-$categoria = new Categoria($_GET['id']);
+try {
+    $categoria = new Categoria($_GET['id']);
+} catch (Exception $error) {
+    Erro::trataErro($error);
+}
 
 ?>
 <div class="row">
